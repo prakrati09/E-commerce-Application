@@ -1,0 +1,73 @@
+/* src/components/ProductDetail.css */
+
+.product-detail {
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Elegant shadow for depth */
+  max-width: 700px;
+  margin: 1.5rem auto;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.product-detail:hover {
+  transform: scale(1.02); /* Slight enlarge on hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.product-detail img {
+  max-width: 90%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-detail img:hover {
+  transform: scale(1.04); /* Subtle zoom effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-detail h1 {
+  font-size: 2.4rem;
+  color: #333333;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.product-detail p {
+  font-size: 1.15rem;
+  color: #666666;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  max-width: 80%; /* Limit width for better readability */
+  margin: 0 auto; /* Center-align text */
+}
+
+.add-to-cart-btn {
+  padding: 0.9rem 2.2rem;
+  background-image: linear-gradient(135deg, #ff9800, #ff5722); /* Gradient for a modern look */
+  color: #fff;
+  border: none;
+  border-radius: 50px; /* Full rounded button */
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3); /* Soft shadow for emphasis */
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 18px rgba(255, 87, 34, 0.4); /* Enhanced shadow on hover */
+  background-image: linear-gradient(135deg, #ff5722, #ff9800); /* Invert gradient on hover */
+}
+
+.cart-confirmation {
+  margin-top: 1.5rem;
+  color: #4caf50;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px; /* Slightly increased letter-spacing */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

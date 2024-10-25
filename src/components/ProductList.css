@@ -1,0 +1,142 @@
+/* src/components/ProductList.css */
+.product-list {
+  width: 100%;
+  max-width: 1450px; /* Center the list on larger screens */
+  margin: 0 auto; /* Center the container */
+  padding: 60px 30px; /* Spacious padding */
+  background-color: #f4f4f4; /* Light gray background */
+  font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+}
+
+.product-list h2 {
+  text-align: center;
+  color: #444; /* Darker gray color */
+  font-size: 2.5rem; /* Large font for title */
+  margin-bottom: 40px;
+  letter-spacing: 1.5px; /* Slight letter spacing for style */
+}
+
+.search-input {
+  width: 100%;
+  max-width: 450px; /* Limit the width of the search input */
+  padding: 15px;
+  border: 2px solid #e68900; /* Blue border */
+  border-radius: 30px; /* More rounded input */
+  margin: 0 auto 40px auto; /* Center align */
+  font-size: 1.1rem; /* Base font size */
+  transition: border-color 0.3s ease; /* Transition for border color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.search-input::placeholder {
+  color: #999; /* Gray placeholder */
+}
+
+.search-input:focus {
+  border-color: #d9534f; /* Darker border on focus */
+  outline: none; /* Remove default outline */
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+  gap: 40px; /* Space between items */
+}
+
+.products > div {
+  background-color: #ffffff; /* White card background */
+  border-radius: 12px; /* Round corners */
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  text-align: center; /* Center text */
+  position: relative; /* For pseudo-elements */
+  padding: 25px; /* Padding inside product cards */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Slight shadow */
+}
+
+.products > div:hover {
+  transform: translateY(-7px); /* More lift effect on hover */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.products > div img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Rounded corners for images */
+  transition: transform 0.3s ease; /* Smooth image hover effect */
+}
+
+.products > div img:hover {
+  transform: scale(1.1); /* Scale image slightly on hover */
+}
+
+.products > div h3 {
+  font-size: 1.4rem;
+  color: #333; /* Dark color for title */
+  margin: 10px 0; /* Space around text */
+  font-weight: 600; /* Semi-bold weight for titles */
+}
+
+.products > div p {
+  color: #d9534f; /* Red color for price */
+  font-weight: 700; /* Bold weight for price */
+  margin: 5px 0; /* Space around price text */
+}
+
+/* Optional: Adjust layout on smaller screens */
+@media (max-width: 768px) {
+  .product-list {
+    padding: 30px; /* Reduce padding on smaller screens */
+  }
+
+  .product-list h2 {
+    font-size: 2rem; /* Smaller title font size */
+    margin-bottom: 20px; /* Reduce space below title */
+  }
+
+  .search-input {
+    padding: 12px; /* Reduce padding */
+    font-size: 1rem; /* Smaller font size */
+    max-width: 300px; /* Full width on smaller screens */
+  }
+
+  .products {
+    gap: 20px; /* Smaller gap between items */
+  }
+
+  .products > div {
+    padding: 20px; /* Reduce padding inside product cards */
+  }
+
+  .products > div h3 {
+    font-size: 1.2rem; /* Smaller title font size */
+  }
+
+  .products > div p {
+    font-size: 1rem; /* Smaller price font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    padding: 20px; /* Further reduce padding on extra small screens */
+  }
+
+  .product-list h2 {
+    font-size: 1.8rem; /* Smaller title font size */
+  }
+
+  .search-input {
+    padding: 10px; /* Further reduce padding */
+    font-size: 0.9rem; /* Even smaller font size */
+    margin: 0 auto 20px auto; /* Adjust bottom margin */
+  }
+
+  .products > div h3 {
+    font-size: 1rem; /* Smaller title font size */
+  }
+
+  .products > div p {
+    font-size: 0.9rem; /* Smaller price font size */
+  }
+}

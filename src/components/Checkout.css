@@ -1,0 +1,121 @@
+/* src/components/Checkout.css */
+.checkout {
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 30px; /* Soft rounded corners */
+    padding: 50px; /* Generous padding */
+    max-width: 800px; /* Ample max width */
+    margin: 60px auto; /* Centered with space around */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Deep shadow for elegance */
+    font-family: 'Montserrat', sans-serif; /* Elegant font */
+    position: relative; /* For positioning pseudo-elements */
+    overflow: hidden; /* Clip pseudo-element */
+}
+
+/* Pseudo-element for a decorative effect */
+.checkout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(236, 240, 241, 0.1), rgba(236, 240, 241, 0.3)); /* Light radial gradient */
+    border-radius: 30px; /* Match the container's border radius */
+    z-index: -1; /* Place behind content */
+}
+
+/* Headings styles */
+.checkout h2 {
+    font-size: 2.5rem; /* Main heading size */
+    color: #34495e; /* Darker blue-gray text */
+    text-align: center; /* Centered text */
+    margin-bottom: 20px; /* Space below */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 0.5px; /* Slight letter spacing */
+}
+
+.checkout p {
+    color: #7f8c8d; /* Subtle gray text color */
+    text-align: center; /* Centered text */
+    font-size: 1.1rem; /* Standard size */
+    margin: 15px 0; /* Space around the paragraph */
+}
+
+.checkout h3 {
+    font-size: 2rem; /* Size for cart items heading */
+    color: #2980b9; /* Blue-gray color for contrast */
+    margin: 20px 0; /* Space around heading */
+    text-align: center; /* Centered text */
+}
+
+/* List styles */
+.checkout ul {
+    list-style-type: none; /* No default list style */
+    padding: 0; /* No padding */
+    margin: 30px 0; /* Margin above and below */
+}
+
+.checkout li {
+    background-color: #f8f9fa; /* Very light gray for items */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px; /* Padding inside the list items */
+    margin: 15px 0; /* Space between items */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between title and price */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Light shadow */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.checkout li:hover {
+    background-color: #e9ecef; /* Light gray on hover */
+    transform: scale(1.02); /* Slight grow on hover */
+}
+
+.checkout h4 {
+    font-size: 1.6rem; /* Size for total heading */
+    color: #34495e; /* Dark text color */
+    text-align: center; /* Center the text */
+    margin: 25px 0; /* Space around the total */
+}
+
+/* Button styles */
+.checkout-btn {
+    background: #e67e22; /* Warm orange button color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 30px; /* More rounded corners */
+    padding: 15px 40px; /* Padding for button */
+    font-size: 1.3rem; /* Larger font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    display: block; /* Block display for centering */
+    margin: 30px auto; /* Center the button */
+    width: 240px; /* Fixed width for button */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow for button */
+    letter-spacing: 1px; /* Letter spacing */
+}
+
+.checkout-btn:hover {
+    background: #d35400; /* Darker orange on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .checkout {
+        padding: 30px; /* Adjust padding for smaller screens */
+    }
+
+    .checkout h2 {
+        font-size: 2rem; /* Smaller heading size */
+    }
+
+    .checkout h3 {
+        font-size: 1.6rem; /* Smaller subheading size */
+    }
+
+    .checkout-btn {
+        width: 100%; /* Full width for buttons on small screens */
+    }
+}

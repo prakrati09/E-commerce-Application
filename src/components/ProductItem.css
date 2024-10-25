@@ -1,0 +1,131 @@
+/* src/components/ProductItem.css */
+.product-item {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  max-width: 320px; /* Set a maximum width for larger screens */
+  margin: auto; /* Center the item */
+  text-align: center;
+  padding: 16px;
+  flex: 1; /* Allow flexibility in layout */
+}
+
+.product-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.product-item img:hover {
+  transform: scale(1.04);
+}
+
+.product-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 8px 0;
+}
+
+.product-item p {
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center; /* Center-aligns the buttons */
+  align-items: center; /* Vertically centers the buttons */
+}
+
+.product-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-actions .view-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.product-actions .view-button:hover {
+  background-color: #0056b3;
+}
+
+.product-actions button:first-of-type {
+  background-color: #ff9800;
+  color: white;
+}
+
+.product-actions button:first-of-type:hover {
+  background-color: #e68900;
+}
+
+/* Optional: Add icons next to button text */
+.product-actions button::before {
+  content: '🛒';
+  font-size: 1.1rem;
+}
+
+.product-actions .view-button::before {
+  content: '🔍';
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .product-item {
+    max-width: 90%; /* Use more width on smaller screens */
+    padding: 12px; /* Reduce padding for smaller screens */
+  }
+
+  .product-item h3 {
+    font-size: 1.1rem; /* Slightly reduce heading size */
+  }
+
+  .product-item p {
+    font-size: 1rem; /* Slightly reduce paragraph size */
+  }
+
+  .product-actions button {
+    padding: 6px 10px; /* Reduce button padding */
+    font-size: 0.8rem; /* Smaller font size for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    max-width: 95%; /* Use even more width on very small screens */
+    padding: 8px; /* Further reduce padding */
+  }
+
+  .product-item h3 {
+    font-size: 1rem; /* Further reduce heading size */
+  }
+
+  .product-item p {
+    font-size: 0.9rem; /* Further reduce paragraph size */
+  }
+
+  .product-actions button {
+    padding: 4px 8px; /* Further reduce button padding */
+    font-size: 0.7rem; /* Even smaller font size for buttons */
+  }
+}

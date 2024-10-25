@@ -1,0 +1,94 @@
+/* src/components/CartItem.css */
+.cart-item {
+    background-color: #fdfdfd; /* Light background for the cart item */
+    border-radius: 15px; /* More pronounced rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    padding: 20px; /* Padding inside the cart item */
+    margin: 20px 0; /* Margin between items */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
+    position: relative; /* Positioning for pseudo-elements */
+    overflow: hidden; /* Clipping for pseudo-elements */
+}
+
+.cart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width for the overlay */
+    height: 100%; /* Full height for the overlay */
+    background: rgba(255, 203, 0, 0.1); /* Subtle yellow overlay */
+    z-index: -1; /* Behind the content */
+    border-radius: 15px; /* Match the container's border radius */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+.cart-item:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.cart-item:hover {
+    transform: translateY(-5px); /* More pronounced lift effect on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.cart-item h4 {
+    font-size: 1.5rem; /* Larger font size for the product title */
+    color: #333; /* Dark gray color */
+    flex-grow: 1; /* Allow title to grow and take space */
+    margin: 0; /* Remove default margin */
+    font-weight: bold; /* Bold title */
+    text-transform: capitalize; /* Capitalize the title */
+}
+
+.cart-item p {
+    color: #777; /* Lighter gray color for price and quantity */
+    margin: 0 10px; /* Margin for spacing */
+    font-size: 1rem; /* Consistent font size */
+}
+
+.cart-item button {
+    background-color: #ff4081; /* Bright pink background for buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 12px; /* Rounded corners */
+    padding: 10px 15px; /* Increased padding inside buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Larger font size for buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for buttons */
+}
+
+.cart-item button:hover {
+    background-color: #d5006d; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+.cart-item button:disabled {
+    background-color: #ddd; /* Gray background for disabled state */
+    cursor: not-allowed; /* Not-allowed cursor */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .cart-item h4 {
+        font-size: 1.3rem; /* Smaller title on mobile */
+    }
+
+    .cart-item p {
+        font-size: 0.9rem; /* Smaller text on mobile */
+    }
+
+    .cart-item button {
+        width: 100%; /* Full width buttons on mobile */
+        margin-top: 10px; /* Space between buttons */
+    }
+}
