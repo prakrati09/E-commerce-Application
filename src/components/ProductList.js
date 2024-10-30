@@ -38,6 +38,7 @@ const ProductList = ({ addToCart }) => {
           <ProductItem key={product.id} product={product} addToCart={addToCart} />
         ))}
       </div>
+      {/* Remove the SaveProductsButton */}
     </div>
   );
 };
