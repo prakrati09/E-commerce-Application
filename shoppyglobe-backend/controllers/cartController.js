@@ -1,4 +1,3 @@
-// controllers/cartController.js
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 
@@ -39,11 +38,8 @@ const addItemToCart = async (req, res) => {
       cart.items.push({ productId, quantity });
     }
 
-    // Update the total
-    cart.total = cart.items.reduce(async (sum, item) => {
-      const product = await Product.findById(item.productId);
-      return sum + product.price * item.quantity;
-    }, 0);
+    // Calculate the total
+    cart.total = await calculateTotal(cart.items);
 
     // Save the cart
     await cart.save();
@@ -53,6 +49,17 @@ const addItemToCart = async (req, res) => {
   }
 };
 
+// Helper function to calculate total
+const calculateTotal = async (items) => {
+  let total = 0;
+  for (const item of items) {
+    const product = await Product.findById(item.productId);
+    total += product.price * item.quantity;
+  }
+  return total;
+};
+
+
 // Remove item from cart
 const removeItemFromCart = async (req, res) => {
   const { userId, productId } = req.body;
@@ -61,7 +68,6 @@ const removeItemFromCart = async (req, res) => {
     const cart = await Cart.findOne({ userId });
     if (!cart) return res.status(404).json({ message: 'Cart not found' });
 
-    // Remove item from cart
     cart.items = cart.items.filter(item => item.productId.toString() !== productId);
     cart.total = cart.items.reduce(async (sum, item) => {
       const product = await Product.findById(item.productId);

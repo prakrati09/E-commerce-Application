@@ -1,10 +1,11 @@
 // routes/cartRoutes.js
 const express = require('express');
-const { getCart, addItemToCart, removeItemFromCart } = require('../controllers/cartController');
+const authMiddleware = require('../middlewares/authMiddleware');
+const { addToCart, getCart } = require('../controllers/cartController');
+
 const router = express.Router();
 
-router.get('/:userId', getCart);
-router.post('/add', addItemToCart);
-router.post('/remove', removeItemFromCart);
+router.post('/add', authMiddleware, addToCart); // Protected route
+router.get('/', authMiddleware, getCart); // Protected route
 
 module.exports = router;
