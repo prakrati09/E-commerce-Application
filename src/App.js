@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import Header from './components/Header';
+import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import './styles.css';
 
@@ -33,8 +34,9 @@ const App = () => {
             <Routes>
               <Route path="/" element={<ProductList addToCart={addToCart} />} />
               <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
+              {/* Wrap Cart and Checkout routes with ProtectedRoute */}
+              <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
+              <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
               <Route path="/auth" element={<AuthForm />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
