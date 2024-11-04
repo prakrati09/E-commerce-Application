@@ -30,8 +30,8 @@ const Header = () => {
           <li><Link to="/checkout">Checkout</Link></li>
           {username ? (
             <>
-              <li>Hello, {username}</li>
-              <li>
+<li style={{ color: 'white' }}>Hello, {username}</li>
+<li>
                 <button onClick={handleLogout} className="logout-button">Logout</button>
               </li>
             </>

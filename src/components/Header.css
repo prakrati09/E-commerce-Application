@@ -4,27 +4,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #282c34; /* Darker background for better contrast */
-  padding: 1rem 2rem; /* Increased padding for a more spacious feel */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  border-radius: 8px; /* Rounded corners for a softer look */
+  background-color: #282c34; 
+  padding: 1rem 2rem; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+  border-radius: 8px; 
 }
 
 /* Logo styles */
 .logo {
-  font-size: 1.8rem; /* Increased logo size */
+  font-size: 1.8rem; 
   font-weight: bold;
-  color: #ff9800; /* Bright color for logo */
+  color: #ff9800; 
 }
 
 .logo a {
-  color: inherit; /* Inherit color from the logo */
+  color: inherit; 
   text-decoration: none;
-  transition: transform 0.3s; /* Add transition for hover effect */
+  transition: transform 0.3s; 
 }
 
 .logo a:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  transform: scale(1.1); 
 }
 
 /* Navigation styles */
@@ -36,7 +36,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem; /* Increased gap for better spacing */
+  gap: 2rem; 
   margin: 0;
   padding: 0;
 }
@@ -45,123 +45,143 @@ nav {
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
-  position: relative; /* Positioning for the hover effect */
-  padding: 0.5rem 0; /* Padding for better clickable area */
-  transition: color 0.3s, border-bottom 0.3s; /* Added border transition */
+  position: relative; 
+  padding: 0.5rem 0; 
+  transition: color 0.3s, border-bottom 0.3s; 
 }
 
 .nav-links li a:hover {
-  color: #ff9800; /* Hover color */
-  border-bottom: 2px solid #ff9800; /* Underline on hover */
+  color: #ff9800; 
+  border-bottom: 2px solid #ff9800; 
+}
+
+/* Username styles */
+.username {
+  color: white; /* Match the logo color */
+  font-weight: 600; /* Slightly bolder text */
+}
+
+/* Logout button styles */
+.logout-button {
+  background-color: transparent; /* Transparent background */
+  color: #ff9800; /* Match the logo color */
+  border: 2px solid #ff9800; /* Border to make it visible */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding for better size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Transition for hover effects */
+}
+
+.logout-button:hover {
+  background-color: #ff9800; /* Background color on hover */
+  color: #fff; /* Change text color on hover */
 }
 
 /* Cart icon styles */
 .cart-icon {
   position: relative;
-  margin-left: 2rem; /* Increased spacing for better layout */
+  margin-left: 2rem; 
 }
 
-/* Adjust cart icon size for responsiveness */
 .cart-icon i {
-  color: #ff9800; /* Bright color for the cart icon */
-  font-size: 1.8rem; /* Increased size for better visibility */
-  transition: transform 0.3s; /* Add transition for hover effect */
+  color: #ff9800; 
+  font-size: 1.8rem; 
+  transition: transform 0.3s; 
 }
 
 .cart-icon i:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  transform: scale(1.1); 
 }
 
-/* Cart badge styles */
 .cart-badge {
   position: absolute;
   top: -5px;
   right: -10px;
-  background-color: #ff9800; /* Badge color */
+  background-color: #ff9800; 
   color: #fff;
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
-  font-size: 0.8rem; /* Adjust font size for badge */
-  font-weight: bold; /* Make badge text bold */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Add shadow to badge */
+  font-size: 0.8rem; 
+  font-weight: bold; 
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); 
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row; /* Keep items in a row on smaller screens */
-    justify-content: space-between; /* Space out logo and nav links */
-    padding: 1rem; /* Reduce padding */
+    flex-direction: row; 
+    justify-content: space-between; 
+    padding: 1rem; 
   }
 
   .nav-links {
-    flex-direction: row; /* Keep links in a row */
-    gap: 1rem; /* Reduce gap */
-    margin-top: 0; /* Remove top margin */
+    flex-direction: row; 
+    gap: 1rem; 
+    margin-top: 0; 
   }
 
   .nav-links li {
-    width: auto; /* Make list items auto width */
-    text-align: left; /* Align text to the left */
+    width: auto; 
+    text-align: left; 
   }
 
   .logo {
-    font-size: 1.5rem; /* Reduce logo size on smaller screens */
+    font-size: 1.5rem; 
   }
 
   .cart-icon {
-    margin-left: 1rem; /* Adjust left margin for smaller screens */
+    margin-left: 1rem; 
   }
 
   .cart-icon i {
-    font-size: 1.5rem; /* Slightly reduce the cart icon size */
+    font-size: 1.5rem; 
   }
 
   .cart-badge {
-    top: -3px; /* Adjust badge position for better visibility */
-    right: -8px; /* Adjust badge position for better visibility */
-    font-size: 0.7rem; /* Smaller badge font size */
-    padding: 0.1rem 0.4rem; /* Adjust padding for smaller screens */
+    top: -3px; 
+    right: -8px; 
+    font-size: 0.7rem; 
+    padding: 0.1rem 0.4rem; 
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 0.5rem; /* Further reduce padding */
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to start */
+    padding: 0.5rem; 
+    flex-direction: column; 
+    align-items: flex-start; 
   }
 
   .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    gap: 1rem; /* Reduce gap */
-    width: 100%; /* Make links take full width */
-    margin-top: 1rem; /* Add margin on top */
+    flex-direction: column; 
+    gap: 1rem; 
+    width: 100%; 
+    margin-top: 1rem; 
   }
 
   .nav-links li {
-    width: 100%; /* Make list items full width */
-    text-align: center; /* Center align text */
+    width: 100%; 
+    text-align: center; 
   }
 
   .logo {
-    font-size: 1.5rem; /* Reduce logo size on smaller screens */
-    margin-bottom: 1rem; /* Add space below logo */
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
   }
 
   .cart-icon {
-    margin-left: 0; /* Reset margin for very small screens */
+    margin-left: 0; 
     position: absolute;
     left: 180px;
     top: 17px;
   }
 
   .cart-icon i {
-    font-size: 1.3rem; /* Further reduce cart icon size */
+    font-size: 1.3rem; 
   }
 
   .cart-badge {
-    font-size: 0.6rem; /* Even smaller badge font size */
-    padding: 0.1rem 0.3rem; /* Further adjust padding */
+    font-size: 0.6rem; 
+    padding: 0.1rem 0.3rem; 
   }
 }
