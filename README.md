@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-to get fetch all the proucts in database 
+to get all the proucts in database 
 run cmd `node populateProducts.js` in shoppyglobe-backend
 then run `node server.js`
 
