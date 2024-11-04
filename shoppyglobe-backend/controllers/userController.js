@@ -24,8 +24,6 @@ exports.registerUser = async (req, res) => {
 
 // Login user
 exports.loginUser = async (req, res) => {
-  console.log(req.body); // Check the incoming data
-
   const { username, password } = req.body;
 
   try {
@@ -35,8 +33,9 @@ exports.loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, message: 'Login successful' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCartItems, removeItem, updateQuantity } from '../redux/cartSlice';
 import './Cart.css';
@@ -8,15 +8,18 @@ const CART_API_URL = 'http://localhost:5000/cart';
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  const token = localStorage.getItem('token'); // Retrieve token from local storage
+  const [loading, setLoading] = useState(false);
 
-  const updateCartInDatabase = async (id, quantity) => {
+  const updateCartInDatabase = async (productId, quantity) => {
     try {
-      const response = await fetch(`${CART_API_URL}`, {
+      const response = await fetch(`${CART_API_URL}/${productId}`, {
         method: quantity > 0 ? 'PUT' : 'DELETE',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Add the token to request headers
         },
-        body: JSON.stringify({ productId: id, quantity }),
+        body: JSON.stringify({ quantity }),
       });
 
       if (!response.ok) {
@@ -29,19 +32,24 @@ const Cart = () => {
   };
 
   const handleRemove = (id) => {
-    dispatch(removeItem({ id }));
-    updateCartInDatabase(id, 0); // Quantity 0 to indicate deletion
+    if (window.confirm('Are you sure you want to remove this item from your cart?')) {
+      dispatch(removeItem({ id }));
+      updateCartInDatabase(id, 0); // Quantity 0 to indicate deletion
+    }
   };
 
   const handleQuantityChange = (id, quantity) => {
     if (quantity < 1) return; // Ensure quantity is always at least 1
+    setLoading(true); // Set loading state
     dispatch(updateQuantity({ id, quantity }));
-    updateCartInDatabase(id, quantity);
+    updateCartInDatabase(id, quantity)
+      .finally(() => setLoading(false)); // Reset loading state after API call
   };
 
   return (
     <div className="cart">
       <h2>Your Cart</h2>
+      {loading && <p>Updating your cart...</p>}
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (

@@ -15,15 +15,19 @@ const AuthForm = () => {
     e.preventDefault();
     setError('');
     setSuccess('');
-
+  
     try {
       const url = `http://localhost:5000/user/${isLogin ? 'login' : 'register'}`;
-      // Remove the response variable if it's not needed
-      await axios.post(url, { username, password });
-
-      // Call login to update context and localStorage
-      login(username);
-      setSuccess(isLogin ? 'Login successful!' : 'Registration successful! You can now log in.');
+      const response = await axios.post(url, { username, password });
+  
+      if (isLogin) {
+        const { token } = response.data;
+        login(username);
+        localStorage.setItem('token', token); // Store the token for later use
+        setSuccess('Login successful!');
+      } else {
+        setSuccess('Registration successful! You can now log in.');
+      }
     } catch (error) {
       if (error.response) {
         setError(error.response.data.message || 'An error occurred.');
@@ -32,7 +36,7 @@ const AuthForm = () => {
       }
     }
   };
-
+  
   return (
     <div>
       <h2>{isLogin ? 'Login' : 'Register'}</h2>

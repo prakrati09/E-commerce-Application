@@ -1,13 +1,13 @@
-// controllers/cartController.js
 const Cart = require('../models/Cart'); // Import Cart model
 
 // Add item to cart or update quantity if item already exists
 exports.addItemToCart = async (req, res) => {
-  const { userId, productId, quantity } = req.body;
+  const { productId, quantity } = req.body;
+  const username = req.user.username; // Retrieve username from authenticated user
 
   try {
     // Find existing cart for the user
-    let cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne({ username });
 
     if (cart) {
       // Check if item already exists in cart
@@ -23,7 +23,7 @@ exports.addItemToCart = async (req, res) => {
     } else {
       // If no cart exists, create a new one
       cart = new Cart({
-        userId,
+        username,
         items: [{ productId, quantity }],
       });
     }
@@ -38,10 +38,10 @@ exports.addItemToCart = async (req, res) => {
 
 // Get items in the user's cart
 exports.getCartItems = async (req, res) => {
-  const { userId } = req.params;
+  const username = req.user.username; // Retrieve username from authenticated user
 
   try {
-    const cart = await Cart.findOne({ userId }).populate('items.productId');
+    const cart = await Cart.findOne({ username }).populate('items.productId');
     if (cart) {
       res.json(cart);
     } else {
@@ -54,10 +54,11 @@ exports.getCartItems = async (req, res) => {
 
 // Remove an item from the cart
 exports.removeItemFromCart = async (req, res) => {
-  const { userId, productId } = req.body;
+  const username = req.user.username; // Retrieve username from authenticated user
+  const { productId } = req.body;
 
   try {
-    const cart = await Cart.findOne({ userId });
+    const cart = await Cart.findOne({ username });
     if (cart) {
       // Filter out item to remove from cart
       cart.items = cart.items.filter(item => item.productId.toString() !== productId);
